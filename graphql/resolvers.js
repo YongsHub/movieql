@@ -1,14 +1,8 @@
-import { getMovies, getById, addMovie} from "./db";
+import { getMovies } from "./db.js";
 
 
-const resolvers = {
+export const resolvers = {
     Query: { // Read
-        Movies: () => getMovies(),
-        Movie: (_, { id }) => getById(id), 
+        Movies: () => getMovies()
     },
-    Mutation: { // Create, Update, Delete
-        addMovie: (_, {name, score}) => addMovie(name, score),
-    }
 };
-
-export default resolvers
